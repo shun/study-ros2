@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+  ros:
+    image: kudoshunsuke/ros2-foxy
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    environment:
+      DISPLAY: $DISPLAY
+      ROS_DOMAIN: MYDOMAIN
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    #ports:
+    #entrypoint:
+    tty: true
+    devices:
+      - /dev/snd:/dev/snd
+      - /dev/dri:/dev/dri
